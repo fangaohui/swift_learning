@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+extern void _objc_autoreleasePoolPrint();
 
 @interface ViewController ()
 
@@ -16,7 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    _objc_autoreleasePoolPrint();
+    
+    
 }
 
 
