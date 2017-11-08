@@ -1,0 +1,16 @@
+
+.svn/*
+.DS_Store
+
+Build/*
+DerivedData/*
+
+**/*.xcodeproj/xcuserdata/*
+**/*.xcworkspace/xcshareddata/*
+**/*.xcworkspace/xcuserdata/*
+**/*.xcworkspace/xcuserdata/*
+**/*.xcworkspace/*
+
+Resources
+
+**/Pods/*
