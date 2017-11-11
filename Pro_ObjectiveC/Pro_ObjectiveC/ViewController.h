@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+    id __weak _testObj;
+}
 
+@property(nonatomic,weak)id testObj;
 
 @end
 
