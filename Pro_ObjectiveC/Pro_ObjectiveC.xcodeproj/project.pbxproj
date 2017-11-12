@@ -15,6 +15,8 @@
 		4C1DBDAE1FB3BFE100A7C885 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1DBDAC1FB3BFE100A7C885 /* LaunchScreen.storyboard */; };
 		4C1DBDB91FB3BFE100A7C885 /* Pro_ObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DBDB81FB3BFE100A7C885 /* Pro_ObjectiveCTests.m */; };
 		4C1DBDC41FB3BFE100A7C885 /* Pro_ObjectiveCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DBDC31FB3BFE100A7C885 /* Pro_ObjectiveCUITests.m */; };
+		4CBAC4EB1FB8FAD500689DDA /* test_block.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CBAC4EA1FB8FAD500689DDA /* test_block.c */; };
+		4CBAC4EF1FB9020000689DDA /* test_block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CBAC4EE1FB9020000689DDA /* test_block.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		4C1DBDBF1FB3BFE100A7C885 /* Pro_ObjectiveCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Pro_ObjectiveCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1DBDC31FB3BFE100A7C885 /* Pro_ObjectiveCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pro_ObjectiveCUITests.m; sourceTree = "<group>"; };
 		4C1DBDC51FB3BFE100A7C885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CBAC4EA1FB8FAD500689DDA /* test_block.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test_block.c; sourceTree = "<group>"; };
+		4CBAC4EE1FB9020000689DDA /* test_block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_block.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 				4C1DBDAC1FB3BFE100A7C885 /* LaunchScreen.storyboard */,
 				4C1DBDAF1FB3BFE100A7C885 /* Info.plist */,
 				4C1DBD9E1FB3BFE100A7C885 /* Supporting Files */,
+				4CBAC4EA1FB8FAD500689DDA /* test_block.c */,
+				4CBAC4EE1FB9020000689DDA /* test_block.cpp */,
 			);
 			path = Pro_ObjectiveC;
 			sourceTree = "<group>";
@@ -274,8 +280,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1DBDA61FB3BFE100A7C885 /* ViewController.m in Sources */,
+				4CBAC4EF1FB9020000689DDA /* test_block.cpp in Sources */,
 				4C1DBDA31FB3BFE100A7C885 /* AppDelegate.m in Sources */,
 				4C1DBDA01FB3BFE100A7C885 /* main.m in Sources */,
+				4CBAC4EB1FB8FAD500689DDA /* test_block.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +517,7 @@
 				4C1DBDCA1FB3BFE100A7C885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C1DBDCB1FB3BFE100A7C885 /* Build configuration list for PBXNativeTarget "Pro_ObjectiveCTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +526,7 @@
 				4C1DBDCD1FB3BFE100A7C885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C1DBDCE1FB3BFE100A7C885 /* Build configuration list for PBXNativeTarget "Pro_ObjectiveCUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +535,7 @@
 				4C1DBDD01FB3BFE100A7C885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
