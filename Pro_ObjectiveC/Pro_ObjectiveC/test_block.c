@@ -8,12 +8,7 @@
 
 void testBlock(){
     __block int cc = 1;
-    /*
-    int aa = 123;
-    const char *abc = "val = %d";
-    void(^blk)(void) = ^void(){ printf(abc, aa); };
-    blk();
-    */
+    void(^blk)(void) = ^void(){ int aa = 123; };
 }
 
 

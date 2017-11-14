@@ -121,13 +121,26 @@ __Block_byref_cc_0 *__forwarding;
  int __size;
  int cc;
 };
+
+struct __testBlock_block_impl_0 {
+  struct __block_impl impl;
+  struct __testBlock_block_desc_0* Desc;
+  __testBlock_block_impl_0(void *fp, struct __testBlock_block_desc_0 *desc, int flags=0) {
+    impl.isa = &_NSConcreteStackBlock;
+    impl.Flags = flags;
+    impl.FuncPtr = fp;
+    Desc = desc;
+  }
+};
+static void __testBlock_block_func_0(struct __testBlock_block_impl_0 *__cself) {
+ int aa = 123; }
+
+static struct __testBlock_block_desc_0 {
+  size_t reserved;
+  size_t Block_size;
+} __testBlock_block_desc_0_DATA = { 0, sizeof(struct __testBlock_block_impl_0)};
 void testBlock(){
     __attribute__((__blocks__(byref))) __Block_byref_cc_0 cc = {(void*)0,(__Block_byref_cc_0 *)&cc, 0, sizeof(__Block_byref_cc_0), 1};
-
-
-
-
-
-
+    void(*blk)(void) = ((void (*)())&__testBlock_block_impl_0((void *)__testBlock_block_func_0, &__testBlock_block_desc_0_DATA));
 }
 static struct IMAGE_INFO { unsigned version; unsigned flag; } _OBJC_IMAGE_INFO = { 0, 2 };

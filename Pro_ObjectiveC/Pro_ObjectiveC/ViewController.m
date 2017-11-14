@@ -56,6 +56,11 @@ extern void _objc_autoreleasePoolPrint();
         NSLog(@"%d",a);
         return a;
     };
+    
+    id obj = [self getBlockArray];
+    typedef void(^testbbb)(void);
+    testbbb __bbb = (testbbb)[obj objectAtIndex:0];
+    __bbb();
 }
 
 -(void)testbb:(int(^)(int))blk
@@ -106,6 +111,12 @@ void func (blkk blka)
 char (^funcb()) (int)
 {
     return ^char(int a){ return 1; };
+}
+
+-(id)getBlockArray
+{
+    int val = 10;
+    return [[NSArray alloc] initWithObjects:^{NSLog(@"123");},^{NSLog(@"123");},^{NSLog(@"123");}, nil];
 }
 
 /*
