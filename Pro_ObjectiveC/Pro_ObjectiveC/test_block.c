@@ -8,7 +8,7 @@
 
 void testBlock(){
     __block int cc = 1;
-    void(^blk)(void) = ^void(){ int aa = 123; };
+    //void(^blk)(void) = ^void(){ int aa = 123; };
 }
 
 

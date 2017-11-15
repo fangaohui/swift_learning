@@ -8,8 +8,13 @@
 
 #import "ViewController.h"
 extern void _objc_autoreleasePoolPrint();
+typedef void(^testbbb)(void);
 
 @interface ViewController ()
+{
+    testbbb bab;
+    NSArray *aryblock;
+}
 
 @end
 
@@ -52,20 +57,37 @@ extern void _objc_autoreleasePoolPrint();
     
     [NSThread detachNewThreadSelector:@selector(testThread) toTarget:self withObject:nil];
     
+    __block int bbaa = 666;
     int(^testblock)(int) = ^int(int a){
-        NSLog(@"%d",a);
+        NSLog(@"%d--------%d",a,bbaa);
         return a;
     };
+    bbaa = 7777;
+    testblock(1232223);
     
     id obj = [self getBlockArray];
-    typedef void(^testbbb)(void);
     testbbb __bbb = (testbbb)[obj objectAtIndex:0];
     __bbb();
+    
+    aryblock = [NSArray array];
+    [self test_Block];
+    bab();
+    NSLog(@"bab");
 }
 
 -(void)testbb:(int(^)(int))blk
 {
     
+}
+
+-(void)test_Block
+{
+    NSMutableArray *ary = [[NSMutableArray alloc] init];
+    NSArray *tempary = aryblock;
+    bab = ^{
+        NSLog(@"%@",tempary);
+        [ary addObject:@"1"];
+    };
 }
 
 -(void)testThread
