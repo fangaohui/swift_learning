@@ -20,8 +20,65 @@ typedef void(^testbbb)(void);
 
 @implementation ViewController
 
+-(void)testSemaphore
+{
+    dispatch_queue_t global = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_semaphore_t helloSemaphore = dispatch_semaphore_create(1);
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 10000; i++) {
+        dispatch_async(global, ^{
+            dispatch_semaphore_wait(helloSemaphore, DISPATCH_TIME_FOREVER);  //-1
+            [array addObject:[NSNumber numberWithInteger:1]];  //0
+            dispatch_semaphore_signal(helloSemaphore);  //+1
+        });
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    dispatch_queue_t mySerialDq = dispatch_queue_create("com.game.hupu.pro.myserial_1", NULL);
+    dispatch_queue_t mySerialDq1 = dispatch_queue_create("com.game.hupu.pro.myserial_2", NULL);
+    dispatch_queue_t mySerialDq2 = dispatch_queue_create("com.game.hupu.pro.myserial_3", NULL);
+    dispatch_set_target_queue(mySerialDq2, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0));
+    dispatch_queue_t myConcurrentDq = dispatch_queue_create("com.game.hupu.pro.myconcurrent", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(mySerialDq, ^{
+        NSLog(@"1");
+    });
+    dispatch_async(mySerialDq1, ^{
+        NSLog(@"2");
+    });
+    dispatch_async(mySerialDq2, ^{
+        NSLog(@"3");
+    });
+//    dispatch_release(mySerialDq);
+    dispatch_group_t disGroup = dispatch_group_create();
+    dispatch_group_async(disGroup, mySerialDq, ^{
+        sleep(5);
+        NSLog(@"4");
+    });
+    dispatch_group_async(disGroup, myConcurrentDq, ^{
+        NSLog(@"5");
+    });
+    dispatch_group_notify(disGroup, mySerialDq2, ^{
+        NSLog(@"6");
+    });
+    
+    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 3ull * NSEC_PER_SEC);
+    dispatch_group_wait(disGroup, time);
+    dispatch_after(time, mySerialDq, ^{
+        NSLog(@"8888");
+    });
+    NSLog(@"777");
+    
+    [self testSemaphore];
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSLog(@"0009900");
+    });
+    
+    return;
     
     NSObject *strongObj = [[NSObject alloc] init];
     NSObject __weak *weakObj = strongObj;
