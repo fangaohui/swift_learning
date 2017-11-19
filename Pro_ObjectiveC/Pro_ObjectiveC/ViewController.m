@@ -40,7 +40,7 @@ typedef void(^testbbb)(void);
     dispatch_queue_t mySerialDq = dispatch_queue_create("com.game.hupu.pro.myserial_1", NULL);
     dispatch_queue_t mySerialDq1 = dispatch_queue_create("com.game.hupu.pro.myserial_2", NULL);
     dispatch_queue_t mySerialDq2 = dispatch_queue_create("com.game.hupu.pro.myserial_3", NULL);
-    dispatch_set_target_queue(mySerialDq2, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0));
+    //dispatch_set_target_queue(mySerialDq2, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0));
     dispatch_queue_t myConcurrentDq = dispatch_queue_create("com.game.hupu.pro.myconcurrent", DISPATCH_QUEUE_CONCURRENT);
     dispatch_async(mySerialDq, ^{
         NSLog(@"1");
@@ -66,10 +66,10 @@ typedef void(^testbbb)(void);
     
     dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 3ull * NSEC_PER_SEC);
     dispatch_group_wait(disGroup, time);
+    NSLog(@"777");
     dispatch_after(time, mySerialDq, ^{
         NSLog(@"8888");
     });
-    NSLog(@"777");
     
     [self testSemaphore];
     
