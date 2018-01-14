@@ -37,6 +37,10 @@ typedef void(^testbbb)(void);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"review");
+    
+    return;
+    
     dispatch_queue_t mySerialDq = dispatch_queue_create("com.game.hupu.pro.myserial_1", NULL);
     dispatch_queue_t mySerialDq1 = dispatch_queue_create("com.game.hupu.pro.myserial_2", NULL);
     dispatch_queue_t mySerialDq2 = dispatch_queue_create("com.game.hupu.pro.myserial_3", NULL);
