@@ -98,8 +98,10 @@ var newset = Set([1233,333])
 var newset11 = Set([1233,333,44])
 newset.union(newset11)
 newset
-
-
+func testFunc(abc:Int=1){
+    print(abc)
+}
+testFunc()
 
 
 
