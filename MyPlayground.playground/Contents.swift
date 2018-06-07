@@ -103,7 +103,14 @@ func testFunc(abc:Int=1){
 }
 testFunc()
 
-
+var volunteerCounts = [1,2,3,4,3,21,5,3]
+func sortAs(_ i:Int, _ j:Int) -> Bool {
+    return i < j
+}
+var volun11 = volunteerCounts.sorted(by:sortAs)
+volunteerCounts.remove(at: 1)
+volunteerCounts
+volun11
 
 
 
